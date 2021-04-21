@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
-<h1>Polls app</h1>
+<h1>Polls App</h1>
 
 {% if latest_question_list %}
     <ul>
@@ -11,5 +11,5 @@
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available. Yon can create one in the admin page.</p>
+    <p>No polls are available. You can create one in the admin page.</p>
 {% endif %}
