@@ -1,16 +1,16 @@
 # Python Django - WEB
-# shorecapital devops pipeline
+# django-repro-app devops pipeline
 
 trigger:
 - master
 - development
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-20.04'
 strategy:
   matrix:
-    Python37:
-      PYTHON_VERSION: '3.7'
+    Python38:
+      PYTHON_VERSION: '3.8'
   maxParallel: 3
 
 steps:
@@ -33,11 +33,12 @@ steps:
   displayName: 'Deploy to Production'
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'ShorecapitalConnectionARM'
+    azureSubscription: 'Visual Studio Enterprise Subscription'
     appType: 'webAppLinux'
-    WebAppName: 'shorecapital'
+    ResourceGroupName: '2104140060004041-django-repro-rg'
+    WebAppName: 'django-repro-app'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    RuntimeStack: 'PYTHON|3.7'
+    RuntimeStack: 'PYTHON|3.8'
     AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True" -POST_BUILD_SCRIPT_PATH "Procfile.sh" -DISABLE_COLLECTSTATIC "True"'
 
 - task: AzureRmWebAppDeployment@4
@@ -45,12 +46,12 @@ steps:
   displayName: 'Deploy to Development'
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'ShorecapitalConnectionARM'
+    azureSubscription: 'Visual Studio Enterprise Subscription'
     appType: 'webAppLinux'
-    WebAppName: 'shorecapital'
+    WebAppName: 'django-repro-app'
     deployToSlotOrASE: true
-    ResourceGroupName: 'ShoreCapitalResourceGroup'
+    ResourceGroupName: '2104140060004041-django-repro-rg'
     SlotName: 'dev'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    RuntimeStack: 'PYTHON|3.7'
+    RuntimeStack: 'PYTHON|3.8'
     AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True" -WEBSITE_TIME_ZONE "India Standard Time" -POST_BUILD_SCRIPT_PATH "Procfile.sh" -DISABLE_COLLECTSTATIC "True" 
