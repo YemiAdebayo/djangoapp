@@ -39,7 +39,7 @@ steps:
     WebAppName: 'django-repro-app'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     RuntimeStack: 'PYTHON|3.8'
-    AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True"'
+    AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True" -POST_BUILD_SCRIPT_PATH "Procfile.sh" -DISABLE_COLLECTSTATIC "True"'
 
 - task: AzureRmWebAppDeployment@4
   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'development'))
@@ -54,4 +54,4 @@ steps:
     SlotName: 'dev'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     RuntimeStack: 'PYTHON|3.8'
-    AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True"'
+    AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True" -POST_BUILD_SCRIPT_PATH "Procfile.sh" -DISABLE_COLLECTSTATIC "True"'
