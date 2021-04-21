@@ -56,7 +56,7 @@ steps:
     RuntimeStack: 'PYTHON|3.8'
     AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True" -POST_BUILD_SCRIPT_PATH "Procfile.sh" -DISABLE_COLLECTSTATIC "True"'
 
-  - task: ShellScript@2
+  - task: Bash@3
     inputs:
       scriptPath: Profile.sh
       #args: '' # Optional
