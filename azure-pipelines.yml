@@ -56,11 +56,11 @@ steps:
     RuntimeStack: 'PYTHON|3.8'
     AppSettings: '-SCM_DO_BUILD_DURING_DEPLOYMENT "True" -POST_BUILD_SCRIPT_PATH "Procfile.sh" -DISABLE_COLLECTSTATIC "True"'
 
-  - task: Bash@5
-    inputs:
-      targetType: 'inline'
-      script: 'bash test.sh'
-      #args: '' # Optional
-      #disableAutoCwd: false # Optional
-      #cwd: '' # Optional
-      #failOnStandardError: false
+- task: Bash@5
+  inputs:
+    targetType: 'inline'
+    script: 'bash test.sh'
+    #args: '' # Optional
+    #disableAutoCwd: false # Optional
+    #cwd: '' # Optional
+    #failOnStandardError: false
