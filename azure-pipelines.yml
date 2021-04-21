@@ -16,7 +16,7 @@ strategy:
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '$(PYTHON_VERSION)'
+    versionSpec: '3.8'
     architecture: 'x64'
   
 - task: ArchiveFiles@2
