@@ -58,7 +58,8 @@ steps:
 
   - task: Bash@5
     inputs:
-      scriptPath: Profile.sh
+      targetType: 'inline'
+      script: 'bash test.sh'
       #args: '' # Optional
       #disableAutoCwd: false # Optional
       #cwd: '' # Optional
