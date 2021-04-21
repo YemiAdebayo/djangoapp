@@ -6,7 +6,7 @@ trigger:
 - development
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-20.04'
 strategy:
   matrix:
     Python38:
@@ -33,7 +33,7 @@ steps:
   displayName: 'Deploy to Production'
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: '7c7c43d0-0b58-4674-bd10-eb4032952fd5'
+    azureSubscription: 'django-repro-Azrm-service-connection'
     appType: 'webAppLinux'
     ResourceGroupName: '2104140060004041-django-repro-rg'
     WebAppName: 'django-repro-app'
@@ -46,7 +46,7 @@ steps:
   displayName: 'Deploy to Development'
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: '7c7c43d0-0b58-4674-bd10-eb4032952fd5'
+    azureSubscription: 'django-repro-Azrm-service-connection'
     appType: 'webAppLinux'
     WebAppName: 'django-repro-app'
     deployToSlotOrASE: true
