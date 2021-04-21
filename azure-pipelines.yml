@@ -6,7 +6,7 @@ trigger:
 - development
 
 pool:
-  vmImage: 'ubuntu-20.04'
+  vmImage: 'ubuntu-latest'
 strategy:
   matrix:
     Python38:
