@@ -27,7 +27,10 @@ SECRET_KEY = '-^rq(x*d--6_#635*j84d5(fz9@-3(9vdr_s$9+^@cw08dq(ja'
 # DEBUG = os.environ.get('DJANGO_APP_DEBUG')
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['23.97.216.47', 'django-repro-app.azurewebsites.net']
 
 
 # Application definition
