@@ -30,7 +30,7 @@ DEBUG = False
 if DEBUG:
     ALLOWED_HOSTS = ['localhost']
 else:
-    ALLOWED_HOSTS = ['https://django-repro-app.azurewebsites.net']
+    ALLOWED_HOSTS = ['23.97.216.47']
 
 
 # Application definition
